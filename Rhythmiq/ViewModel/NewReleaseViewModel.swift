@@ -15,7 +15,10 @@ final class NewReleaseViewModel: ObservableObject {
     @Published var error: String?
     var cancellables = Set<AnyCancellable>()
     
-   
+    func tapMeTapped(){
+        albums.removeLast()
+    }
+    
     func fetchNewReleases(){
         let newReleaseURL = URL(string: "https://api.spotify.com/v1/browse/new-releases")
         let model = APIManager<NewRelease>.Model(url: newReleaseURL, method: .get)

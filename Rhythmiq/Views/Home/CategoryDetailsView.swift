@@ -6,23 +6,34 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CategoryDetailsView: View {
     var category: Item
     @StateObject private var categoryVm = CategoryViewModel()
+    var namespace : Namespace.ID
+    @Binding var isShowing: Bool
+    
     var body: some View {
         GeometryReader {
             let safeArea = $0.safeAreaInsets
             let size = $0.size
-            StickyHeaderView(playlist: nil, category: category, safeArea: safeArea, size: size,content: CategoryPlaylistView())
-        
+            StickyHeaderView(
+                headerImage: category.icons?.first?.url ?? "",
+                headerText: category.name,
+                id: category.id,
+                safeArea: safeArea,
+                size: size,content: CategoryPlaylistView(),
+                namespace: namespace,
+                isShowing: $isShowing
+            )
                 .ignoresSafeArea(.container,edges: .top)
-            
         }
         .onAppear {
             categoryVm.fetchPlaylistByCategory(category: category.id)
         }
     }
+
     @ViewBuilder
     func CategoryPlaylistView ()-> some View {
         let columns = [
@@ -37,13 +48,11 @@ struct CategoryDetailsView: View {
                 LazyVGrid(columns: columns,spacing: 30) {
                     ForEach(Array(categoryVm.playlists.enumerated()) , id: \.element.id) { index,playlist in
                         
-                        NavigationLink(destination: PlaylistView(playlistItem: playlist)) {
+                        NavigationLink(destination: PlaylistView(playlistItem: playlist, namespace: namespace,isShowing: $isShowing)) {
                             VStack (alignment: .leading){
-                                AsyncImage(url: URL(string: playlist.images.first?.url ?? "")) { image in
-                                    image
-                                        .resizable()
-                                        .frame(width: 150, height: 150)
-                                } placeholder: {}
+                                KFImage(URL(string: playlist.images.first?.url ?? ""))
+                                    .resizable()
+                                    .frame(width: 150, height: 150)
                                 Text(playlist.name)
                                     .font(.body)
                                     .foregroundColor(.white)
@@ -66,7 +75,9 @@ struct CategoryDetailsView: View {
 
 
 struct CategoryDetailsView_Previews: PreviewProvider {
+    @Namespace static var namespace
+
     static var previews: some View {
-        CategoryDetailsView(category: Item(href: nil, icons: nil, id: "toplists", name: "Top Lists"))
+        CategoryDetailsView(category: Item(href: nil, icons: nil, id: "toplists", name: "Top Lists"),namespace: namespace,isShowing: .constant(true))
     }
 }

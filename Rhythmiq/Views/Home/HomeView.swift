@@ -10,6 +10,10 @@ import SwiftUI
 struct HomeView: View {
     @StateObject private var vm = CategoryViewModel()
     @StateObject private var newReleaseVm = NewReleaseViewModel()
+    @Namespace var namespace
+    @State var isShowing = false
+    @State var selectedCategory : Item?
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -22,27 +26,37 @@ struct HomeView: View {
                     startPoint: .top,
                     endPoint: .center)
                 .ignoresSafeArea()
+                
+                
+                
                 ScrollView {
                     VStack (alignment: .leading){
                         HomeAppBar().padding(.bottom,35)
-                        HeaderTextView(text: "New Releases")
+                        HStack {
+                            HeaderTextView(text: "New Releases")
+                            Button {
+                                newReleaseVm.tapMeTapped()
+                            } label: {
+                                Text("Tap ME")
+                            }
+                            
+                        }
                         ScrollView(.horizontal,showsIndicators: false){
                             HStack(spacing: 31){
                                 ForEach(newReleaseVm.albums, id: \.id){album in
-                                
-                                    NavigationLink(destination: {
-                                        EmptyView()
-                                    }, label: {
-                                        AlbumsView(album: album)
-
-                                    }) 
+                                    
+                                    AlbumsView(album: album)
+                                        .onTapGesture {
+                                            
+                                        }
                                     
                                 }
                             }
                         }
+                        
                         .alert(isPresented: $newReleaseVm.hasError, content: {
                             Alert(title: Text(newReleaseVm.error ?? "")
-                            
+                                  
                             )})
                         .onAppear(perform: newReleaseVm.fetchNewReleases)
                         .padding(.bottom,35)
@@ -50,30 +64,47 @@ struct HomeView: View {
                         ScrollView(.horizontal,showsIndicators: false){
                             HStack(spacing: 31){
                                 ForEach(vm.categories, id: \.id){category in
-                                    NavigationLink {
-                                        CategoryDetailsView(category: category
-                                        )
-                                    } label: {
-                                        MixesView(category: category)
+                                    MixesView(
+                                        category: category,
+                                        namespace: namespace,
+                                        isShowing: $isShowing,
+                                        selectedId: category.id
+                                    ) .onTapGesture {
+                                        withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.4)){
+                                            selectedCategory = category
+                                            isShowing.toggle()
+                                        }
                                     }
-
                                 }
                             }
                         }
                         .alert(isPresented: $vm.hasError, content: {
                             Alert(title: Text(vm.error ?? "")
-                            
+                                  
                             )})
                         .onAppear(perform: vm.fetchCategoriesNew)
-                        
-                        
                         Spacer()
                     }
                     .padding(25)
                 }
+                .transition(.opacity)
                 
                 
                 
+                
+                
+                
+            }
+            .overlay {
+                if isShowing{
+                    
+                    CategoryDetailsView(
+                        category: selectedCategory!,
+                        namespace: namespace,
+                        isShowing: $isShowing
+                    )
+                    
+                }
             }
             
         }
@@ -85,6 +116,7 @@ struct HomeView: View {
         }
     }
     struct HomeAppBar: View {
+        
         var body: some View {
             HStack{
                 Circle()
@@ -101,8 +133,14 @@ struct HomeView: View {
                 }
                 Spacer()
                 HStack(spacing: 15) {
-                    Image(systemName: "bell")
-                        .foregroundColor(.white)
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "bell")
+                            .foregroundColor(.white)
+                    }
+                    
+                    
                     Image(systemName: "gearshape")
                         .foregroundColor(.white)
                 }

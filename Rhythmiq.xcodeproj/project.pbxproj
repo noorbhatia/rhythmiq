@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7C066EAB2A10E58700A98C0B /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C066EAA2A10E58700A98C0B /* CategoryModel.swift */; };
 		7C066EAE2A10E64F00A98C0B /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C066EAD2A10E64F00A98C0B /* CategoryViewModel.swift */; };
+		7C174FCF2A1E3B8C0062BAD2 /* HomeAppBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C174FCE2A1E3B8C0062BAD2 /* HomeAppBarViewModel.swift */; };
 		7C184CCD2A08DBED00482AFD /* RhythmiqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C184CCC2A08DBED00482AFD /* RhythmiqApp.swift */; };
 		7C184CCF2A08DBED00482AFD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C184CCE2A08DBED00482AFD /* HomeView.swift */; };
 		7C184CD12A08DBEF00482AFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C184CD02A08DBEF00482AFD /* Assets.xcassets */; };
@@ -20,6 +21,9 @@
 		7C37D8A12A18AA730092BF9A /* PlaylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C37D8A02A18AA730092BF9A /* PlaylistModel.swift */; };
 		7C37D8A32A18AB410092BF9A /* PlaylistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C37D8A22A18AB410092BF9A /* PlaylistViewModel.swift */; };
 		7C37D8A52A18DE850092BF9A /* CategoryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C37D8A42A18DE850092BF9A /* CategoryDetailsView.swift */; };
+		7CA0A6652A234412001160C8 /* StickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA0A6642A234412001160C8 /* StickyHeaderView.swift */; };
+		7CA0A6682A234C52001160C8 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 7CA0A6672A234C52001160C8 /* Nuke */; };
+		7CD6E83E2A23515800DDCCC9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7CD6E83D2A23515800DDCCC9 /* Kingfisher */; };
 		7CDF58282A1368560078F5D1 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF58272A1368560078F5D1 /* AuthManager.swift */; };
 		7CDF582A2A1368DA0078F5D1 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF58292A1368DA0078F5D1 /* AccessToken.swift */; };
 		7CDF582C2A13690D0078F5D1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDF582B2A13690D0078F5D1 /* APIManager.swift */; };
@@ -31,6 +35,7 @@
 /* Begin PBXFileReference section */
 		7C066EAA2A10E58700A98C0B /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		7C066EAD2A10E64F00A98C0B /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		7C174FCE2A1E3B8C0062BAD2 /* HomeAppBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAppBarViewModel.swift; sourceTree = "<group>"; };
 		7C184CC92A08DBED00482AFD /* Rhythmiq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rhythmiq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C184CCC2A08DBED00482AFD /* RhythmiqApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmiqApp.swift; sourceTree = "<group>"; };
 		7C184CCE2A08DBED00482AFD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -44,6 +49,7 @@
 		7C37D8A02A18AA730092BF9A /* PlaylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistModel.swift; sourceTree = "<group>"; };
 		7C37D8A22A18AB410092BF9A /* PlaylistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewModel.swift; sourceTree = "<group>"; };
 		7C37D8A42A18DE850092BF9A /* CategoryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsView.swift; sourceTree = "<group>"; };
+		7CA0A6642A234412001160C8 /* StickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderView.swift; sourceTree = "<group>"; };
 		7CDF58272A1368560078F5D1 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		7CDF58292A1368DA0078F5D1 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		7CDF582B2A13690D0078F5D1 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -57,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CD6E83E2A23515800DDCCC9 /* Kingfisher in Frameworks */,
+				7CA0A6682A234C52001160C8 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +77,7 @@
 				7C066EAD2A10E64F00A98C0B /* CategoryViewModel.swift */,
 				7CDF582F2A1384FE0078F5D1 /* NewReleaseViewModel.swift */,
 				7C37D8A22A18AB410092BF9A /* PlaylistViewModel.swift */,
+				7C174FCE2A1E3B8C0062BAD2 /* HomeAppBarViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -148,6 +157,7 @@
 				7C184CE42A0950E600482AFD /* BaseView.swift */,
 				7C184CE62A0993EA00482AFD /* DetailsView.swift */,
 				7C37D8A42A18DE850092BF9A /* CategoryDetailsView.swift */,
+				7CA0A6642A234412001160C8 /* StickyHeaderView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -194,6 +204,10 @@
 			dependencies = (
 			);
 			name = Rhythmiq;
+			packageProductDependencies = (
+				7CA0A6672A234C52001160C8 /* Nuke */,
+				7CD6E83D2A23515800DDCCC9 /* Kingfisher */,
+			);
 			productName = Rhythmiq;
 			productReference = 7C184CC92A08DBED00482AFD /* Rhythmiq.app */;
 			productType = "com.apple.product-type.application";
@@ -222,6 +236,10 @@
 				Base,
 			);
 			mainGroup = 7C184CC02A08DBED00482AFD;
+			packageReferences = (
+				7CA0A6662A234C52001160C8 /* XCRemoteSwiftPackageReference "Nuke" */,
+				7CD6E83C2A23515800DDCCC9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 7C184CCA2A08DBED00482AFD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -248,7 +266,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CA0A6652A234412001160C8 /* StickyHeaderView.swift in Sources */,
 				7C184CCF2A08DBED00482AFD /* HomeView.swift in Sources */,
+				7C174FCF2A1E3B8C0062BAD2 /* HomeAppBarViewModel.swift in Sources */,
 				7CDF582E2A1384B70078F5D1 /* AlbumModel.swift in Sources */,
 				7CDF58282A1368560078F5D1 /* AuthManager.swift in Sources */,
 				7C37D8A52A18DE850092BF9A /* CategoryDetailsView.swift in Sources */,
@@ -471,6 +491,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7CA0A6662A234C52001160C8 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		7CD6E83C2A23515800DDCCC9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7CA0A6672A234C52001160C8 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CA0A6662A234C52001160C8 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		7CD6E83D2A23515800DDCCC9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7CD6E83C2A23515800DDCCC9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7C184CC12A08DBED00482AFD /* Project object */;
 }
