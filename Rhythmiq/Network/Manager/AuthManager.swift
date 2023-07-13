@@ -13,8 +13,8 @@ class AuthManager {
     static let shared = AuthManager()
     
     private let authKey: String = {
-        let clientID = "c695036f67874a699381d54ed44236a2"
-        let clientSecret = "5e8f7a7064f9479aaa3cae009fa92c96"
+        let clientID = "INSERT_YOUR_CLIENT_ID"
+        let clientSecret = "INSERT_YOUR_CLIENT_SECRET"
         let rawKey = "\(clientID):\(clientSecret)"
         let encodedKey = rawKey.data(using: .utf8)?.base64EncodedString() ?? ""
         return "Basic \(encodedKey)"
